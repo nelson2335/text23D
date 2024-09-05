@@ -1,5 +1,7 @@
 let positions = [];
-let postCount = 1; // Valor por defecto
+let postCount = 1;
+const padding = 10;
+const circleDiameter = 20;
 
 function setup() {
     createCanvas(300, 300); 
@@ -8,18 +10,22 @@ function setup() {
 
     getPostCount().then(count => {
         postCount = count;
+        const maxX = width - padding - circleDiameter;
+        const maxY = height - padding - circleDiameter;
+        
+        positions = [];
         for (let i = 0; i < postCount; i++) {
-            positions.push([random(0, 280), random(0, 280)]);
+            positions.push([random(padding, maxX), random(padding, maxY)]);
         }
     });
 }
-  
+
 function draw() {
     background(0); 
-    if (positions.length === postCount) { // Verificar si positions está lleno
+    if (positions.length === postCount) {
         for (let i = 0; i < postCount; i++) {
             let [x, y] = positions[i];
-            circle(x, y, 20);
+            circle(x, y, circleDiameter);
         }
     }
 }

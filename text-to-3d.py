@@ -1,3 +1,5 @@
+# 🍒 ¿qué uso podríamos darle a estos datos que llegan desde la API de wordpress para conectarlos con una Inteligencia Artificial especializada en la creación de volúmenes 3D?
+
 import requests
 import os
 
